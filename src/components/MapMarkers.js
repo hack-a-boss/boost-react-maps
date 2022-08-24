@@ -14,7 +14,9 @@ const MapMarkers = () => {
     if (focused) {
       map.flyTo(focused.marker, 12);
     } else {
-      const markerBounds = latLngBounds(places.map((place) => place.marker));
+      const markerBounds = latLngBounds(
+        places ? places.map((place) => place.marker) : []
+      );
       map.fitBounds(markerBounds);
     }
   }, [focused, map, places]);
